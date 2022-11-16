@@ -34,10 +34,10 @@
 #Others
 *.opendb
 Beberon.exe.recipe
-.suo
 Browse.VC.db
 Beberon.ilk
 *.log
 *.tlog
 Beberon.lastbuildstate
-
+.vs/Beberon/v17/.suo
+.vs/Beberon/v17/Browse.VC.db
