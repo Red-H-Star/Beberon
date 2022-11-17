@@ -1,7 +1,10 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <stdio.h>
+#include <string>
+#include <sstream>
 #include <math.h>
+using namespace std;
 
 //screen dimensions constants
 const int SCREEN_WIDTH = 310;
@@ -201,7 +204,13 @@ void RenderFeeding(SDL_Renderer * renderer) {
     SDL_RenderSetViewport(renderer, &feeder_zone);
     SDL_SetRenderDrawColor(renderer, 230, 233, 240, 255);
 
+
     int feeder_id = 0;
+    string feeder_postid = "Feeder Bottle # " + to_string(feeder_id);
+    const char* feeder_name = feeder_postid.c_str();
+
+    std::string str;
+    const char* c = str.c_str();
 
     int object_start_y = 0; /* + previous rect y value (= 0 for first rect) */
     int object_end_y = SCREEN_HEIGHT * 0.10;
@@ -218,7 +227,7 @@ void RenderFeeding(SDL_Renderer * renderer) {
     SDL_Rect mod_pos = { SCREEN_WIDTH * 0.70, object_start_y + SCREEN_HEIGHT * 0.013, SCREEN_WIDTH * 0.14, object_end_y - SCREEN_HEIGHT * 0.02 };
 
     // [FIND A WAY TO AUTO RENDER feeder_id INTO RenderText ("....%d", feeder_id)]
-    RenderText(renderer, name_pos, "Feeder Bottle #1");
+    RenderText(renderer, name_pos, feeder_name);
     loadImage(bin_pos, "../Pictures/trash bin.bmp", renderer);
     loadImage(mod_pos, "../Pictures/modify.bmp", renderer);
 
